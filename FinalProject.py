@@ -1,5 +1,8 @@
 import random
 
+### Perhaps put this in a "while guesscounter != 0" loop, so the game can be replayed
+### As is, once the guesscounter reaches zero, you are allowed to continue making guesses as the counter goes into the negatives.
+
 word_list = ["cat", "dog", "bunny", "variable", "mountain", "vibes", "popcorn", "hat", "backpack"]
 n = random.randint(0, len(word_list)-1)
 word = word_list[n]
@@ -46,6 +49,7 @@ def ask():
     if len(guess_counter) == 5:
         finish =1
         print("Sorry, you lost")
+        ### print("Word was: " + str(word))
     return finish
 
 def game():
