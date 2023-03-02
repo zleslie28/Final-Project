@@ -21,7 +21,6 @@ def guess(letter):
         guess_counter.append(1)
         print(letter, "is not in the word, you have", str(5-len(guess_counter)), "guesses remaining")
     else:
-        correct = "true"
         x=0
         while x<len(letters):
             if letter == letters[x]:
@@ -39,23 +38,24 @@ def ask():
         print("you may guess the word")
         user_word = input()
         if user_word == word:
-            print("You guessed it, great job!")
             finish = 1
+            print("You guessed it, great job!")
+            return finish
         else:
             guess_counter.append(1)
             print("Not quite, you have", str(5-len(guess_counter)), "guesses left")
     else:
         guess(user_input)
-    if len(guess_counter) == 5:
-        finish =1
-        print("Sorry, you lost")
-        ### print("Word was: " + str(word))
+    if finish == 0:
+        if len(guess_counter) > 4:
+            finish =1
+            print("Sorry, you lost")
+            print("Word was: " + str(word))
     return finish
 
 def game():
     while ask() == 0:
         ask()
-        continue
     
 
     
